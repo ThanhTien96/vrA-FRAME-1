@@ -1,24 +1,42 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
   <head>
-    <title>Title</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <style>
-      .momento-spherical-content-view .cardboard-toggle{
-        display: none!important;
-      }
-    </style>
-</head>
+    <title>360&deg; Image</title>
+    <meta name="description" content="360&deg; Image - A-Frame">
+    <script src="./js/aframe-master.js"></script>
+  </head>
   <body>
-    <section id="inTheDiv"></section>
-    <button id="toclick">in the div</button>
-
-    <iframe width="600px" height="350px" src="index.html" frameborder="0"></iframe>
-
-   
-    <script src="./js/main.js"></script>
-</body>
+    
+    <a-scene>
+      <a-assets>
+        <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
+    
+        <!-- Images. -->
+        <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
+        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
+        <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
+        <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
+        <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
+        <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
+        <img id="vr1" src="img/vr1.jpg">
+      </a-assets>
+    
+      <!-- 360-degree image. -->
+      <a-sky id="image-360" radius="10" src="#vr1"></a-sky>
+      
+      <!-- Link template we will build. -->
+      <a-entity class="link"></a-entity>
+    
+      <!-- Camera + Cursor. -->
+      <a-camera>
+        <a-cursor
+          id="cursor"
+          animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+          animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
+      </a-camera>
+    </a-scene>
+    
+  </body>
 </html>
