@@ -9,42 +9,37 @@
   <body>
     
     <a-scene>
+      <a-entity
+        id="cam"
+        camera="zoom: 1"
+        look-controls="reverseMouseDrag: true"
+      ></a-entity>
+      <!-- my pano image stuff -->
       <a-assets>
-        <audio id="click-sound" src="https://cdn.aframe.io/360-image-gallery-boilerplate/audio/click.ogg"></audio>
-    
-        <!-- Images. -->
-        <img id="city" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/city.jpg">
-        <img id="city-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-city.jpg">
-        <img id="cubes" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/cubes.jpg">
-        <img id="cubes-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-cubes.jpg">
-        <img id="sechelt" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg">
-        <img id="sechelt-thumb" src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/thumb-sechelt.jpg">
-        <img id="vr1" src="./img/vr2.jpg">
+        <img src="./img/vr2.jpg" id="skyTexture" crossorigin="anonymous" />
       </a-assets>
-    
-      <!-- 360-degree image. -->
-      <a-sky id="image-360" radius="10" src="#vr1"></a-sky>
-     
-     
-        
-    
-        <a-camera>
-          <a-cursor></a-cursor>
-        </a-camera>
-      
-      
-      <!-- Link template we will build. -->
-      <a-entity class="link"></a-entity>
-    
-      <!-- Camera + Cursor. -->
-      <a-camera>
-        <a-cursor
-          id="cursor"
-          animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
-          animation__clickreset="property: scale; to: 0.1 0.1 0.1; dur: 1; startEvents: animationcomplete__click"
-          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"></a-cursor>
-      </a-camera>
+      <a-sky src="#skyTexture"></a-sky>
     </a-scene>
     
+
+
+
+    <script>
+      window.addEventListener("wheel", (event) => {
+        // small increments for smoother zooming
+        const delta = event.wheelDelta / 120 / 10;
+        var mycam = document.getElementById("cam").getAttribute("camera");
+        var finalZoom =
+          document.getElementById("cam").getAttribute("camera").zoom + delta;
+    
+        // limiting the zoom
+        if (finalZoom < 0.5) finalZoom = 0.5;
+        if (finalZoom > 2) finalZoom = 2;
+        mycam.zoom = finalZoom;
+    
+        document.getElementById("cam").setAttribute("camera", mycam);
+      });
+    </script>
+    <script src="./js/main.js"></script>
   </body>
 </html>

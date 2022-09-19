@@ -25,7 +25,7 @@ to this section's matching END comment to see page-specific styles.
     --font-family: "HK Grotesk";
     --font-family-header: "HK Grotesk";
   }
-  
+
   /* Basic page style resets */
   * {
     box-sizing: border-box;
