@@ -8,38 +8,24 @@
   </head>
   <body>
     
-    <a-scene>
-      <a-entity
-        id="cam"
-        camera="zoom: 1"
-        look-controls="reverseMouseDrag: true"
-      ></a-entity>
-      <!-- my pano image stuff -->
-      <a-assets>
-        <img src="./img/vr2.jpg" id="skyTexture" crossorigin="anonymous" />
-      </a-assets>
-      <a-sky src="#skyTexture"></a-sky>
-    </a-scene>
+ 
+      <a-scene>
+        <a-entity
+          id="cam"
+          camera="zoom: 1"
+          look-controls="reverseMouseDrag: true"
+        ></a-entity>
+        <!-- my pano image stuff -->
+        <a-assets>
+          <img src="./img/loc-khanh-11.jpg" id="skyTexture" crossorigin="anonymous" />
+        </a-assets>
+        <a-sky src="#skyTexture"></a-sky>
+      </a-scene>
     
 
 
 
-    <script>
-      window.addEventListener("wheel", (event) => {
-        // small increments for smoother zooming
-        const delta = event.wheelDelta / 120 / 10;
-        var mycam = document.getElementById("cam").getAttribute("camera");
-        var finalZoom =
-          document.getElementById("cam").getAttribute("camera").zoom + delta;
     
-        // limiting the zoom
-        if (finalZoom < 0.5) finalZoom = 0.5;
-        if (finalZoom > 2) finalZoom = 2;
-        mycam.zoom = finalZoom;
-    
-        document.getElementById("cam").setAttribute("camera", mycam);
-      });
-    </script>
     <script src="./js/main.js"></script>
   </body>
 </html>
