@@ -30,5 +30,6 @@ window.addEventListener("wheel", (event) => {
   document.getElementById("cam").setAttribute("camera", mycam);
 });
 
-
-
+function btnClick() {
+  alert('bé ơi')
+}

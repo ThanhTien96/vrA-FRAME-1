@@ -1,31 +1,25 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
+    <title>VR 360 - Lộc Khánh 11 Demo</title>
+    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <title>360&deg; Image</title>
-    <meta name="description" content="360&deg; Image - A-Frame">
-    <script src="./js/aframe-master.js"></script>
-  </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <style>
+      .momento-spherical-content-view .cardboard-toggle{
+        display: none!important;
+      }
+    </style>
+</head>
   <body>
-    
- 
-      <a-scene>
-        <a-entity
-          id="cam"
-          camera="zoom: 1"
-          look-controls="reverseMouseDrag: true"
-        ></a-entity>
-        <!-- my pano image stuff -->
-        <a-assets>
-          <img src="./img/loc-khanh-11.jpg" id="skyTexture" crossorigin="anonymous" />
-        </a-assets>
-        <a-sky src="#skyTexture"></a-sky>
-      </a-scene>
-    
+   
+<div class="container" style="max-width: 1200px; margin: auto">
+  
+  <iframe width="800px" height="600px" src="home.html" frameborder="3px solid black"></iframe>
 
-
-
-    
-    <script src="./js/main.js"></script>
-  </body>
+   
+</div>
+    <!-- <script src="./js/main.js"></script> -->
+</body>
 </html>
